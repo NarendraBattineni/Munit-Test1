@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="new-test2-Other.xml" />
+	<munit:test name="new-test2-Other-munit-MainFlowTest" doc:id="70180f6a-bbd4-460f-bba9-86dc389cb22e" description="Test">
+		<munit:behavior >
+			<set-payload value='#["Other"]' doc:name="Set Payload" doc:id="b3f46353-857c-40cd-b5a6-709b4eceda4a" />
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to munit-MainFlow" doc:id="56569b0d-f171-49a6-a7ca-3213b9eb1a41" name="munit-MainFlow"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert-that doc:name="Assert that" doc:id="7d15477b-174c-49f4-bb9b-e29779a97887" expression="#[payload]" is="#[MunitTools::equalTo('2000')]"/>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
